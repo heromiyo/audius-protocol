@@ -8,7 +8,7 @@ from src import api_helpers, exceptions
 from src.models import User, Track, RepostType, Playlist, Save, SaveType, Follow
 from src.utils import helpers
 from src.utils.config import shared_config
-from src.utils.db_session import get_db
+from src.utils.db_session import get_db_read_replica
 from src.queries import response_name_constants
 
 from src.queries.query_helpers import get_current_user_id, populate_user_metadata, \

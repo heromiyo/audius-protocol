@@ -4,7 +4,7 @@ from src import api_helpers
 from src.queries import response_name_constants as const
 from src.queries.query_helpers import get_repost_counts, get_save_counts, get_follower_count_dict
 from src.models import Block, Follow, Save, SaveType, Playlist, Track, Repost, RepostType
-from src.utils.db_session import get_db
+from src.utils.db_session import get_db_read_replica
 from sqlalchemy import desc, func
 
 logger = logging.getLogger(__name__)

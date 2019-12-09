@@ -9,7 +9,7 @@ from flask import Blueprint, request
 from src import api_helpers, exceptions
 from src.models import User, Track, Repost, RepostType, Follow, Playlist, Save, SaveType
 from src.utils import helpers
-from src.utils.db_session import get_db
+from src.utils.db_session import get_db_read_replica
 from src.queries import response_name_constants
 from src.queries.query_helpers import get_current_user_id, parse_sort_param, populate_user_metadata, \
     populate_track_metadata, populate_playlist_metadata, get_repost_counts, get_save_counts, \
