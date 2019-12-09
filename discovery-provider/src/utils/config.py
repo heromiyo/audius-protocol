@@ -99,6 +99,5 @@ for section in shared_config.sections():
         env_config_update(shared_config, section, static_key)
 
 # Set db_read_replica url to same as db url if none provided
-logger.warning(shared_config['db']['url_read_replica'])
 if 'url_read_replica' not in shared_config['db'] or not shared_config['db']['url_read_replica']:
     shared_config['db']['url_read_replica'] = shared_config['db']['url']
