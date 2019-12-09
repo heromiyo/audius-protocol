@@ -97,3 +97,8 @@ for section in shared_config.sections():
     for static_item in shared_config.items(section):
         static_key = static_item[0]
         env_config_update(shared_config, section, static_key)
+
+# Set db_read_replica url to same as db url if none provided
+logger.warning(shared_config['db']['url_read_replica'])
+if 'url_read_replica' not in shared_config['db'] or not shared_config['db']['url_read_replica']:
+    shared_config['db']['url_read_replica'] = shared_config['db']['url']

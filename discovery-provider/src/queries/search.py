@@ -76,7 +76,7 @@ def search_tags():
 
     (limit, offset) = get_pagination_vars()
     like_tags_str = str.format('%{}%', search_str)
-    db = get_db()
+    db = get_db_read_replica()
     with db.scoped_session() as session:
         if (searchKind in [SearchKind.all, SearchKind.tracks]):
             track_res = sqlalchemy.text(
@@ -333,7 +333,7 @@ def search(isAutocomplete):
 
     results = {}
     if searchStr:
-        db = get_db()
+        db = get_db_read_replica()
         with db.scoped_session() as session:
             if (searchKind in [SearchKind.all, SearchKind.tracks]):
                 results['tracks'] = track_search_query(session, searchStr, limit, offset, False, isAutocomplete)

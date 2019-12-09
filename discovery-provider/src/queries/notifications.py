@@ -47,7 +47,7 @@ def get_owner_id(session, entity_type, entity_id):
 
 @bp.route("/notifications", methods=("GET",))
 def notifications():
-    db = get_db()
+    db = get_db_read_replica()
     min_block_number = request.args.get("min_block_number", type=int)
     max_block_number = request.args.get("max_block_number", type=int)
 
@@ -459,7 +459,7 @@ def notifications():
 
 @bp.route("/milestones/followers", methods=("GET",))
 def milestones_followers():
-    db = get_db()
+    db = get_db_read_replica()
     if "user_id" not in request.args:
         return api_helpers.error_response({'msg': 'Please provider user ids'}, 500)
 
